@@ -1,0 +1,12 @@
+# Claude Code local config
+.claude/
+
+# The reusable book-generation prompt (kept local, not published)
+PROMPT.md
+
+# Build output (GitHub Actions regenerates and deploys this)
+site/
+
+# Python
+__pycache__/
+*.pyc

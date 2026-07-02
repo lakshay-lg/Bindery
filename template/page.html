@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<link rel="stylesheet" href="style.css">
+<style>{{theme_css}}</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="toc">
+    <a class="home" href="index.html">← Bookshelf</a>
+    <div class="booktag">{{tag}}</div>
+    <div class="booktitle">{{title}}</div>
+    {{toc}}
+  </nav>
+  <main>
+    <header class="bookhead">
+      <div class="eyebrow">{{tag}}</div>
+      <h1>{{title}}</h1>
+      <p class="subtitle">{{subtitle}}</p>
+    </header>
+    {{body}}
+    <footer>{{nav_prev}}{{nav_next}}</footer>
+  </main>
+</div>
+<script>
+const links=[...document.querySelectorAll('nav.toc a[data-target]')];
+const heads=links.map(a=>document.getElementById(a.dataset.target)).filter(Boolean);
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+links.forEach(l=>l.classList.toggle('active',l.dataset.target===e.target.id));}})},
+{rootMargin:'0px 0px -75% 0px'});
+heads.forEach(h=>obs.observe(h));
+</script>
+</body>
+</html>
