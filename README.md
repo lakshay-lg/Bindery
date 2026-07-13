@@ -4,7 +4,7 @@ A tiny static-site system that binds Markdown files into a shelf of book-styled
 guides, deployed on GitHub Pages. One template, one stylesheet, zero per-book
 styling. New books are just `.md` files.
 
-**Live site:** `https://<username>.github.io/<repo>/`
+**Live site:** `https://bindery.lakshay.app/`
 
 ## How it works
 
